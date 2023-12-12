@@ -1,13 +1,16 @@
 // src/components/HomePage.js
 import React from "react";
+import { Typography, Container } from "@mui/material";
 import ProductListings from "./ProductListings";
 
 const HomePage = () => {
   return (
-    <div>
-      <h2 className="home-page-title">Welcome to Second Home</h2>
+    <Container>
+      <Typography variant="h2" component="h1" gutterBottom>
+        Welcome to Second Home
+      </Typography>
       <ProductListings />
-    </div>
+    </Container>
   );
 };
 

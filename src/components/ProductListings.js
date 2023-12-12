@@ -1,6 +1,7 @@
 // src/components/ProductListings.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const ProductListings = () => {
         name: "Earring",
         price: 19.99,
         sellerId: 2,
-        thumbnail: "earring-thumbnail.jpg",
+        thumbnail: "earring-thumbnail.png",
       },
       // Add more products as needed
     ];
@@ -30,22 +31,32 @@ const ProductListings = () => {
 
   return (
     <div>
-      <h2 className="product-listing-title">Product Listings</h2>
-      <div className="product-tiles">
+      <Typography variant="h4" component="h2" gutterBottom>
+        Product Listings
+      </Typography>
+      <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
         {products.map((product) => (
           <Link
             to={`/product/${product.id}`}
             key={product.id}
             style={{ textDecoration: "none" }}
           >
-            <div className="product-tile">
-              <img
-                src={require(`../assets/${product.thumbnail}`).default}
+            <Card style={{ maxWidth: "250px", margin: "8px" }}>
+              <CardMedia
+                component="img"
                 alt={`${product.name} Thumbnail`}
+                height="140"
+                image={require(`../assets/${product.thumbnail}`).default}
               />
-              <h3>{product.name}</h3>
-              <p>${product.price}</p>
-            </div>
+              <CardContent>
+                <Typography variant="h6" component="div">
+                  {product.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  ${product.price}
+                </Typography>
+              </CardContent>
+            </Card>
           </Link>
         ))}
       </div>
