@@ -1,28 +1,26 @@
-// src/components/ProductListings.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import shoeThumbnail from "../assets/shoe-thumbnail.jpg";
+import earringThumbnail from "../assets/earring-thumbnail.png";
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from the backend (to be implemented later)
-    // For now, let's mock some data
     const mockProducts = [
       {
         id: 1,
         name: "Shoe",
         price: 49.99,
         sellerId: 1,
-        thumbnail: "shoe-thumbnail.jpg",
+        thumbnail: shoeThumbnail,
       },
       {
         id: 2,
         name: "Earring",
         price: 19.99,
         sellerId: 2,
-        thumbnail: "earring-thumbnail.png",
+        thumbnail: earringThumbnail,
       },
       // Add more products as needed
     ];
@@ -31,32 +29,19 @@ const ProductListings = () => {
 
   return (
     <div>
-      <Typography variant="h4" component="h2" gutterBottom>
-        Product Listings
-      </Typography>
-      <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+      <h2 className="product-listing-title">Product Listings</h2>
+      <div className="product-tiles">
         {products.map((product) => (
           <Link
             to={`/product/${product.id}`}
             key={product.id}
             style={{ textDecoration: "none" }}
           >
-            <Card style={{ maxWidth: "250px", margin: "8px" }}>
-              <CardMedia
-                component="img"
-                alt={`${product.name} Thumbnail`}
-                height="140"
-                image={require(`../assets/${product.thumbnail}`).default}
-              />
-              <CardContent>
-                <Typography variant="h6" component="div">
-                  {product.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  ${product.price}
-                </Typography>
-              </CardContent>
-            </Card>
+            <div className="product-tile">
+              <img src={product.thumbnail} alt={`${product.name} Thumbnail`} />
+              <h3>{product.name}</h3>
+              <p>${product.price}</p>
+            </div>
           </Link>
         ))}
       </div>
