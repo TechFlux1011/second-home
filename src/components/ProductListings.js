@@ -30,11 +30,8 @@ const ProductListings = () => {
 
   return (
     <div>
-      <h2 style={{ color: "red" }}>Product Listings</h2>
-      <div
-        style={{ border: "1px solid white", padding: "10px" }}
-        className="product-tiles"
-      >
+      <h2 className="product-listing-title">Product Listings</h2>
+      <div className="product-tiles">
         {products.map((product) => (
           <Link
             to={`/product/${product.id}`}
