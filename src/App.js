@@ -1,18 +1,18 @@
 // src/App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomePage from "./components/HomePage";
-import ProductPage from "./components/ProductPage";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Routes } from "react-router-dom"; // Replace 'Switch' with 'Routes'
+import HomePage from "./components/HomePage"; // Import HomePage
+import ProductPage from "./components/ProductPage"; // Import ProductPage
 
 const App = () => {
   return (
     <Router>
       <div>
-        <Switch>
-          <Route path="/product/:productId" component={ProductPage} />
-          <Route path="/" component={HomePage} />
-        </Switch>
+        <Routes>
+          <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       </div>
     </Router>
   );
