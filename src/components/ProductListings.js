@@ -1,83 +1,106 @@
 // src/components/ProductListings.js
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { styled } from "@mui/system";
 import axios from "axios";
-import ProductPage from "./ProductPage";
+
+const ProductListingCard = styled(Card)({
+  border: "1px solid #333",
+  borderRadius: "8px",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+  overflow: "hidden",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  position: "relative",
+  transition: "border-color 0.3s, box-shadow 0.3s",
+  "&:hover": {
+    borderColor: "#00ff00",
+    boxShadow: "0 8px 16px rgba(0, 255, 0, 0.4)",
+  },
+});
+
+const ProductImage = styled(CardMedia)({
+  flex: 1,
+  width: "100%",
+  objectFit: "cover",
+  borderRadius: "8px",
+});
+
+const CardContentContainer = styled(CardContent)({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
+  padding: "16px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-end",
+  opacity: 0,
+  transition: "opacity 0.3s",
+  "&:hover": {
+    opacity: 1,
+  },
+});
+
+const Text = styled(Typography)({
+  color: "#fff",
+});
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const fetchData = useCallback(async () => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+        const imagePromises = data.map(() => fetchStockImage());
+        return Promise.all(imagePromises);
+      })
+      .then((urls) => setImageUrls(urls))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  const fetchStockImage = async () => {
+    try {
+      const response = await axios.get("https://source.unsplash.com/random");
+      return response.config.url;
+    } catch (error) {
+      console.error("Error fetching stock image:", error);
+      return "https://via.placeholder.com/150";
+    }
+  };
 
   return (
-    <div>
-      <h2 className="product-listing-title">Product Listings</h2>
-      {loading ? (
-        <p>Loading products...</p>
-      ) : (
-        <div className="product-tiles">
-          {products.map((product) => (
+    <Grid container spacing={2}>
+      {products.map((product, index) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <ProductListingCard>
+            <ProductImage
+              component="img"
+              alt={`${product.title} Thumbnail`}
+              height="100%"
+              image={imageUrls[index]}
+            />
+            <CardContentContainer>
+              <Text variant="h6">{product.title}</Text>
+              <Text variant="body2">{product.body}</Text>
+            </CardContentContainer>
             <Link
               to={`/product/${product.id}`}
-              key={product.id}
               style={{ textDecoration: "none" }}
-              onClick={() => setSelectedProduct(product)}
-            >
-              <div className="product-tile" key={product.id}>
-                <img
-                  src={
-                    product.profile?.thumbnail ||
-                    "https://via.placeholder.com/150"
-                  }
-                  alt={`${product.title} Thumbnail`}
-                  className="product-thumbnail"
-                />
-                <div className="product-info">
-                  <h3>{product.title}</h3>
-                  <p>{product.body}</p>
-                  <div className="profile-info">
-                    {product.profile ? (
-                      <>
-                        <img
-                          src={product.profile.thumbnail}
-                          alt={`${product.profile.name} Thumbnail`}
-                          className="profile-thumbnail"
-                        />
-                        <p>{product.profile.name}</p>
-                        <p>{product.profile.email}</p>
-                      </>
-                    ) : (
-                      <p>No profile data available</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
-
-      {/* Render the ProductPage component based on the route with selectedProduct prop */}
-      {selectedProduct && <ProductPage product={selectedProduct} />}
-    </div>
+            />
+          </ProductListingCard>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
