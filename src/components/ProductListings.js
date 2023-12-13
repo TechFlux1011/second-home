@@ -1,9 +1,17 @@
 // src/components/ProductListings.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import axios from "axios";
+import { useAuth } from "../AuthContext";
 
 const DarkBackground = styled("div")({
   backgroundColor: "#121212", // Dark background color
@@ -83,6 +91,7 @@ const generateRandomPrice = () => {
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     const apiUrl = "https://jsonplaceholder.typicode.com/posts";
@@ -133,6 +142,11 @@ const ProductListings = () => {
                 <CardContentContainer>
                   <Text variant="h6">{product.title}</Text>
                   <Text variant="body2">${generateRandomPrice()}</Text>
+                  {user && (
+                    <Button variant="contained" color="primary">
+                      Add to Cart
+                    </Button>
+                  )}
                 </CardContentContainer>
               </ProductListingCard>
             </Link>

@@ -22,15 +22,13 @@ const ProductPage = () => {
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    // Fetch product details from the backend (to be implemented later)
-    // For now, let's mock some data
     const apiUrl = `https://jsonplaceholder.typicode.com/posts/${productId}`;
 
     axios
       .get(apiUrl)
       .then((response) => {
         setProduct(response.data);
-        setPrice(parseFloat(response.data.price)); // Use the actual price from the API
+        setPrice(parseFloat(response.data.price));
       })
       .catch((error) => console.error("Error fetching product data:", error));
   }, [productId]);

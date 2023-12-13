@@ -1,22 +1,29 @@
-// src/App.js
+// App.js
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Routes } from "react-router-dom"; // Replace 'Switch' with 'Routes'
-import HomePage from "./components/HomePage"; // Import HomePage
-import ProductPage from "./components/ProductPage"; // Import ProductPage
-import "./App.css";
-// import images from "url:./assets/earring-thumbnail";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider, useAuth } from "./AuthContext"; // Update this import
+
+import Home from "./components/Home";
+import Login from "./components/Login";
+import ProtectedComponent from "./components/ProtectedComponent";
 
 const App = () => {
+  const { isAuthenticated } = useAuth(); // Update this line
+
   return (
-    <Router>
-      <div>
+    <AuthProvider>
+      {" "}
+      {/* Wrap your app with AuthProvider */}
+      <Router>
         <Routes>
-          <Route path="/product/:productId" element={<ProductPage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
+          {isAuthenticated && (
+            <Route path="/protected" element={<ProtectedComponent />} />
+          )}
+          <Route path="/login" element={<Login />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 };
 

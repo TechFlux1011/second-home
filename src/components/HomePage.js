@@ -1,38 +1,50 @@
-import React from "react";
-import { Typography, Button, Box } from "@mui/material"; // Import Typography, Button, and other components
+// src/components/HomePage.js
 
-import ProductListings from "./ProductListings";
+import React from "react";
+import { Button } from "@mui/material";
+import { useAuth } from "../AuthContext";
+import { useLoginMutation, useLogoutMutation } from "../services/AuthService";
 
 const HomePage = () => {
+  const { user } = useAuth();
+  const loginMutation = useLoginMutation();
+  const logoutMutation = useLogoutMutation();
+
+  const handleLogin = async () => {
+    try {
+      const credentials = {
+        username: "example_user",
+        password: "example_password",
+      };
+      await loginMutation.mutateAsync(credentials);
+    } catch (error) {
+      console.error("Login error:", error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logoutMutation.mutateAsync();
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   return (
-    <Box
-      textAlign="center"
-      color="#fff"
-      bgcolor="#121212"
-      minHeight="100vh"
-      p={4}
-    >
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <Typography variant="h2" fontWeight="bold" mb={1} color="#FFA07A">
-          Second Home
-        </Typography>
-        <Typography variant="subtitle1" mb={3} color="#FFD700">
-          The dating app for clothes ❤️
-        </Typography>
-      </Box>
-      <Box display="flex" justifyContent="center" mb={3}>
-        <Button variant="contained" color="primary" mr={2}>
-          Sign In
+    <div>
+      {user ? (
+        <>
+          <p>Welcome, {user.username}!</p>
+          <Button variant="outlined" color="primary" onClick={handleLogout}>
+            Log Out
+          </Button>
+        </>
+      ) : (
+        <Button variant="contained" color="primary" onClick={handleLogin}>
+          Log In
         </Button>
-        <Button variant="outlined" color="primary">
-          Sign Up
-        </Button>
-      </Box>
-      <Button variant="outlined" color="primary">
-        My Account
-      </Button>
-      <ProductListings />
-    </Box>
+      )}
+    </div>
   );
 };
 
