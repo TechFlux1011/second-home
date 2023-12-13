@@ -1,62 +1,77 @@
-// src/components/ProductListings.js
-import React, { useEffect, useState } from "react";
+// ProductListings.js
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ProductDetail from "./ProductDetail";
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const apiUrl = "https://jsonplaceholder.typicode.com/posts";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  const fetchStockImage = async () => {
-    try {
-      const response = await axios.get("https://source.unsplash.com/random");
-      return response.config.url;
-    } catch (error) {
-      console.error("Error fetching stock image:", error);
-      // Provide a fallback image URL in case of an error
-      return "https://via.placeholder.com/150";
-    }
-  };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div>
       <h2 className="product-listing-title">Product Listings</h2>
-      <div className="product-tiles">
-        {products &&
-          products.map(async (product) => {
-            const stockImage = await fetchStockImage();
-
-            return (
-              <Link
-                to={`/product/${product.id}`}
-                key={product.id}
-                style={{ textDecoration: "none" }}
-              >
-                <div className="product-tile">
-                  <img
-                    src={stockImage}
-                    alt={`${product.title} Thumbnail`}
-                    className="product-thumbnail"
-                  />
-                  <div className="product-info">
-                    <h3>{product.title}</h3>
-                    <p>{product.body}</p>
+      {loading ? (
+        <p>Loading products...</p>
+      ) : (
+        <div className="product-tiles">
+          {products.map((product) => (
+            <Link
+              to={`/product/${product.id}`}
+              key={product.id}
+              style={{ textDecoration: "none" }}
+            >
+              <div className="product-tile" key={product.id}>
+                <img
+                  src={product.image || "https://via.placeholder.com/150"}
+                  alt={`${product.title} Thumbnail`}
+                  className="product-thumbnail"
+                />
+                <div className="product-info">
+                  <h3>{product.title}</h3>
+                  <p>{product.body}</p>
+                  <div className="profile-info">
+                    {product.profile && product.profile.thumbnail ? (
+                      <>
+                        <img
+                          src={product.profile.thumbnail}
+                          alt={`${product.profile.name} Thumbnail`}
+                          className="profile-thumbnail"
+                        />
+                        <p>{product.profile.name}</p>
+                        <p>{product.profile.email}</p>
+                      </>
+                    ) : (
+                      <p>No profile data available</p>
+                    )}
                   </div>
                 </div>
-              </Link>
-            );
-          })}
-      </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Render the ProductDetail component based on the route */}
+      <ProductDetail />
     </div>
   );
 };
