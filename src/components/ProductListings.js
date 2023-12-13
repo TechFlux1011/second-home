@@ -1,12 +1,13 @@
-// ProductListings.js
+// src/components/ProductListings.js
 import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ProductDetail from "./ProductDetail";
+import ProductPage from "./ProductPage";
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const fetchData = useCallback(async () => {
     try {
@@ -38,10 +39,14 @@ const ProductListings = () => {
               to={`/product/${product.id}`}
               key={product.id}
               style={{ textDecoration: "none" }}
+              onClick={() => setSelectedProduct(product)}
             >
               <div className="product-tile" key={product.id}>
                 <img
-                  src={product.image || "https://via.placeholder.com/150"}
+                  src={
+                    product.profile?.thumbnail ||
+                    "https://via.placeholder.com/150"
+                  }
                   alt={`${product.title} Thumbnail`}
                   className="product-thumbnail"
                 />
@@ -49,7 +54,7 @@ const ProductListings = () => {
                   <h3>{product.title}</h3>
                   <p>{product.body}</p>
                   <div className="profile-info">
-                    {product.profile && product.profile.thumbnail ? (
+                    {product.profile ? (
                       <>
                         <img
                           src={product.profile.thumbnail}
@@ -70,8 +75,8 @@ const ProductListings = () => {
         </div>
       )}
 
-      {/* Render the ProductDetail component based on the route */}
-      <ProductDetail />
+      {/* Render the ProductPage component based on the route with selectedProduct prop */}
+      {selectedProduct && <ProductPage product={selectedProduct} />}
     </div>
   );
 };
