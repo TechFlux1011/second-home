@@ -1,7 +1,7 @@
 // Home.js
 import React from "react";
 import { Link } from "react-router-dom";
-import firebase from "firebase/app"; // Import only the 'app' module
+import { initializeApp } from "firebase/app";
 import "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 
