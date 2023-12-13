@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import shoeThumbnail from "../assets/shoe-thumbnail.jpg";
 import earringThumbnail from "../assets/earring-thumbnail.png";
+import Typography from "@mui/material/Typography";
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
