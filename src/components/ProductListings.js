@@ -76,6 +76,10 @@ const Text = styled(Typography)({
   color: "#fff",
 });
 
+const generateRandomPrice = () => {
+  return (Math.random() * (100 - 10) + 10).toFixed(2);
+};
+
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
@@ -128,7 +132,7 @@ const ProductListings = () => {
                 <NeonLight className="neonLight" />
                 <CardContentContainer>
                   <Text variant="h6">{product.title}</Text>
-                  <Text variant="body2">{product.body}</Text>
+                  <Text variant="body2">${generateRandomPrice()}</Text>
                 </CardContentContainer>
               </ProductListingCard>
             </Link>
