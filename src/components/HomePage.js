@@ -12,20 +12,22 @@ const HomePage = () => {
       minHeight="100vh"
       p={4}
     >
-      <Typography
-        variant="h2"
-        className="home-page-title"
-        fontWeight="bold"
-        mb={3}
-      >
-        Welcome to Second Home
-      </Typography>
-      <Button variant="contained" color="primary" mr={2}>
-        Sign In
-      </Button>
-      <Button variant="outlined" color="primary" mr={2}>
-        Sign Up
-      </Button>
+      <Box display="flex" flexDirection="column" alignItems="center">
+        <Typography variant="h2" fontWeight="bold" mb={1} color="#FFA07A">
+          Second Home
+        </Typography>
+        <Typography variant="subtitle1" mb={3} color="#FFD700">
+          The dating app for clothes ❤️
+        </Typography>
+      </Box>
+      <Box display="flex" justifyContent="center" mb={3}>
+        <Button variant="contained" color="primary" mr={2}>
+          Sign In
+        </Button>
+        <Button variant="outlined" color="primary">
+          Sign Up
+        </Button>
+      </Box>
       <Button variant="outlined" color="primary">
         My Account
       </Button>
