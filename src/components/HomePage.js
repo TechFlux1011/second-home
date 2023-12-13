@@ -1,15 +1,49 @@
-import React from "react";
-import { Typography } from "@mui/material"; // Import Typography or other components
+// src/components/HomePage.js
 
-import ProductListings from "./ProductListings";
+import React from "react";
+import { Button } from "@mui/material";
+import { useAuth } from "../AuthContext";
+import { useLoginMutation, useLogoutMutation } from "../services/AuthService";
 
 const HomePage = () => {
+  const { user } = useAuth();
+  const loginMutation = useLoginMutation();
+  const logoutMutation = useLogoutMutation();
+
+  const handleLogin = async () => {
+    try {
+      const credentials = {
+        username: "example_user",
+        password: "example_password",
+      };
+      await loginMutation.mutateAsync(credentials);
+    } catch (error) {
+      console.error("Login error:", error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logoutMutation.mutateAsync();
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   return (
     <div>
-      <Typography variant="h2" className="home-page-title">
-        Welcome to Second Home
-      </Typography>
-      <ProductListings />
+      {user ? (
+        <>
+          <p>Welcome, {user.username}!</p>
+          <Button variant="outlined" color="primary" onClick={handleLogout}>
+            Log Out
+          </Button>
+        </>
+      ) : (
+        <Button variant="contained" color="primary" onClick={handleLogin}>
+          Log In
+        </Button>
+      )}
     </div>
   );
 };
