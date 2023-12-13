@@ -1,0 +1,258 @@
+[debug] [2023-12-13T23:21:56.203Z] ----------------------------------------------------------------------
+[debug] [2023-12-13T23:21:56.205Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\msowk\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-12-13T23:21:56.206Z] CLI Version:   13.0.1
+[debug] [2023-12-13T23:21:56.206Z] Platform:      win32
+[debug] [2023-12-13T23:21:56.206Z] Node Version:  v20.5.1
+[debug] [2023-12-13T23:21:56.206Z] Time:          Wed Dec 13 2023 17:21:56 GMT-0600 (Central Standard Time)
+[debug] [2023-12-13T23:21:56.207Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-13T23:21:56.296Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-13T23:21:56.296Z] > authorizing via signed-in user (m.sowko16@gmail.com)
+[debug] [2023-12-13T23:21:56.481Z] openjdk version "11.0.16.1" 2022-08-12 LTS
+
+[debug] [2023-12-13T23:21:56.481Z] OpenJDK Runtime Environment Microsoft-40648 (build 11.0.16.1+1-LTS)
+OpenJDK 64-Bit Server VM Microsoft-40648 (build 11.0.16.1+1-LTS, mixed mode)
+
+[debug] [2023-12-13T23:21:56.525Z] Parsed Java major version: 11
+[info] i  emulators: Starting emulators: database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: database, hosting, storage"}}
+[debug] [2023-12-13T23:21:56.534Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-13T23:21:56.534Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-13T23:21:56.534Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-13T23:21:56.534Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-13T23:21:56.535Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-12-13T23:21:56.547Z] [hub] writing locator at C:\Users\msowk\AppData\Local\Temp\hub-second-home-faf97.json
+[debug] [2023-12-13T23:21:56.552Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97 [none]
+[debug] [2023-12-13T23:21:56.773Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97 200
+[debug] [2023-12-13T23:21:56.774Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97 {"projectId":"second-home-faf97","projectNumber":"776546997812","displayName":"Second Home","name":"projects/second-home-faf97","resources":{"hostingSite":"second-home-faf97","realtimeDatabaseInstance":"second-home-faf97-default-rtdb","storageBucket":"second-home-faf97.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_42c9e6a6-dc80-4722-ab1e-457e24d0b214"}
+[debug] [2023-12-13T23:21:56.774Z] database rules config:  [{"instance":"second-home-faf97-default-rtdb","rules":"E:\\ffluxxSoft\\secondHome\\second-home\\database.rules.json"}]
+[info] i  database: downloading firebase-database-emulator-v4.11.2.jar... {"metadata":{"emulator":{"name":"database"},"message":"downloading firebase-database-emulator-v4.11.2.jar..."}}
+[debug] [2023-12-13T23:21:56.779Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/firebase-database-emulator-v4.11.2.jar 
+[debug] [2023-12-13T23:21:57.014Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/firebase-database-emulator-v4.11.2.jar 200
+[debug] [2023-12-13T23:21:57.014Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/firebase-database-emulator-v4.11.2.jar [stream]
+[debug] [2023-12-13T23:21:59.150Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2023-12-13T23:21:59.150Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-12-13T23:21:59.150Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2023-12-13T23:21:59.150Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\msowk\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\msowk\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2023-12-13T23:21:59.893Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/C:/Users/msowk/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\r\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/C:/Users/msowk/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\r\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\r\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\r\nWARNING: All illegal access operations will be denied in a future release"}}
+[debug] [2023-12-13T23:21:59.893Z] 
+ {"metadata":{"emulator":{"name":"database"},"message":"\r\n"}}
+[debug] [2023-12-13T23:22:00.374Z] 17:22:00.373 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"17:22:00.373 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
+[debug] [2023-12-13T23:22:00.494Z] 17:22:00.493 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"17:22:00.493 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\r\n"}}
+[info] i  storage: downloading cloud-storage-rules-runtime-v1.1.3.jar... {"metadata":{"emulator":{"name":"storage"},"message":"downloading cloud-storage-rules-runtime-v1.1.3.jar..."}}
+[debug] [2023-12-13T23:22:00.721Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-storage-rules-runtime-v1.1.3.jar 
+[debug] [2023-12-13T23:22:00.832Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-storage-rules-runtime-v1.1.3.jar 200
+[debug] [2023-12-13T23:22:00.833Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-storage-rules-runtime-v1.1.3.jar [stream]
+[debug] [2023-12-13T23:22:03.338Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-12-13T23:22:04.065Z] Temp file directory for storage emulator: C:\Users\msowk\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\msowk\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2023-12-13T23:22:04.076Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/second-home-faf97/sites 
+[debug] [2023-12-13T23:22:04.488Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/second-home-faf97/sites 200
+[debug] [2023-12-13T23:22:04.488Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/second-home-faf97/sites {"sites":[{"name":"projects/second-home-faf97/sites/second-home-faf97","defaultUrl":"https://second-home-faf97.web.app","appId":"1:776546997812:web:6bf6cdd82634a31a5fdc61","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-13T23:22:04.488Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97/webApps/1:776546997812:web:6bf6cdd82634a31a5fdc61/config [none]
+[debug] [2023-12-13T23:22:04.856Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97/webApps/1:776546997812:web:6bf6cdd82634a31a5fdc61/config 200
+[debug] [2023-12-13T23:22:04.856Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97/webApps/1:776546997812:web:6bf6cdd82634a31a5fdc61/config {"projectId":"second-home-faf97","appId":"1:776546997812:web:6bf6cdd82634a31a5fdc61","databaseURL":"https://second-home-faf97-default-rtdb.firebaseio.com","storageBucket":"second-home-faf97.appspot.com","locationId":"us-central","apiKey":"AIzaSyDKqeqce0HSnhZxCgr686Di0abVg__gRtU","authDomain":"second-home-faf97.firebaseapp.com","messagingSenderId":"776546997812","measurementId":"G-8LDN5EFM7N"}
+[debug] [2023-12-13T23:22:04.861Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97 [none]
+[debug] [2023-12-13T23:22:04.997Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97 200
+[debug] [2023-12-13T23:22:04.997Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/second-home-faf97 {"projectId":"second-home-faf97","projectNumber":"776546997812","displayName":"Second Home","name":"projects/second-home-faf97","resources":{"hostingSite":"second-home-faf97","realtimeDatabaseInstance":"second-home-faf97-default-rtdb","storageBucket":"second-home-faf97.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_42c9e6a6-dc80-4722-ab1e-457e24d0b214"}
+[info] i  hosting[second-home-faf97]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[second-home-faf97]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.11.7.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.11.7.zip..."}}
+[debug] [2023-12-13T23:22:05.015Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.7.zip 
+[debug] [2023-12-13T23:22:05.041Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.7.zip 200
+[debug] [2023-12-13T23:22:05.041Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.7.zip [stream]
+[debug] [2023-12-13T23:22:05.356Z] Data is 3064105
+[debug] [2023-12-13T23:22:05.356Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-12-13T23:22:05.356Z] [unzip] Processing entry: client\
+[debug] [2023-12-13T23:22:05.356Z] [unzip] mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\
+[debug] [2023-12-13T23:22:05.357Z] [unzip] Entry: client/favicon.ico (compressed_size=2497 bytes, uncompressed_size=7406 bytes)
+[debug] [2023-12-13T23:22:05.357Z] [unzip] Processing entry: client\favicon.ico
+[debug] [2023-12-13T23:22:05.357Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.358Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\favicon.ico
+[debug] [2023-12-13T23:22:05.361Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=7231 bytes, uncompressed_size=7367 bytes)
+[debug] [2023-12-13T23:22:05.361Z] [unzip] Processing entry: client\apple-touch-icon.png
+[debug] [2023-12-13T23:22:05.362Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.362Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\apple-touch-icon.png
+[debug] [2023-12-13T23:22:05.363Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=16987 bytes, uncompressed_size=18186 bytes)
+[debug] [2023-12-13T23:22:05.363Z] [unzip] Processing entry: client\android-chrome-512x512.png
+[debug] [2023-12-13T23:22:05.363Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.363Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\android-chrome-512x512.png
+[debug] [2023-12-13T23:22:05.366Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-12-13T23:22:05.366Z] [unzip] Processing entry: client\assets\
+[debug] [2023-12-13T23:22:05.366Z] [unzip] mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\
+[debug] [2023-12-13T23:22:05.367Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-12-13T23:22:05.367Z] [unzip] Processing entry: client\assets\extensions\
+[debug] [2023-12-13T23:22:05.367Z] [unzip] mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\extensions\
+[debug] [2023-12-13T23:22:05.367Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2023-12-13T23:22:05.367Z] [unzip] Processing entry: client\assets\extensions\default-extension.png
+[debug] [2023-12-13T23:22:05.368Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\extensions
+[debug] [2023-12-13T23:22:05.368Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\extensions\default-extension.png
+[debug] [2023-12-13T23:22:05.369Z] [unzip] Entry: client/assets/index.58ca09f7.css (compressed_size=37601 bytes, uncompressed_size=321252 bytes)
+[debug] [2023-12-13T23:22:05.369Z] [unzip] Processing entry: client\assets\index.58ca09f7.css
+[debug] [2023-12-13T23:22:05.369Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets
+[debug] [2023-12-13T23:22:05.369Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\index.58ca09f7.css
+[debug] [2023-12-13T23:22:05.371Z] [unzip] Entry: client/assets/index.c2583d42.js (compressed_size=526232 bytes, uncompressed_size=1860152 bytes)
+[debug] [2023-12-13T23:22:05.371Z] [unzip] Processing entry: client\assets\index.c2583d42.js
+[debug] [2023-12-13T23:22:05.371Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets
+[debug] [2023-12-13T23:22:05.371Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\index.c2583d42.js
+[debug] [2023-12-13T23:22:05.378Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-12-13T23:22:05.378Z] [unzip] Processing entry: client\assets\provider-icons\
+[debug] [2023-12-13T23:22:05.378Z] [unzip] mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\
+[debug] [2023-12-13T23:22:05.379Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2023-12-13T23:22:05.379Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2023-12-13T23:22:05.379Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.379Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2023-12-13T23:22:05.380Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2023-12-13T23:22:05.380Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2023-12-13T23:22:05.380Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.380Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2023-12-13T23:22:05.380Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2023-12-13T23:22:05.381Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_phone.svg
+[debug] [2023-12-13T23:22:05.381Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.381Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_phone.svg
+[debug] [2023-12-13T23:22:05.382Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2023-12-13T23:22:05.382Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_saml.svg
+[debug] [2023-12-13T23:22:05.382Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.382Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_saml.svg
+[debug] [2023-12-13T23:22:05.383Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2023-12-13T23:22:05.383Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2023-12-13T23:22:05.383Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.383Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2023-12-13T23:22:05.384Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2023-12-13T23:22:05.384Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2023-12-13T23:22:05.384Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.384Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2023-12-13T23:22:05.385Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2023-12-13T23:22:05.385Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2023-12-13T23:22:05.385Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.385Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2023-12-13T23:22:05.386Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2023-12-13T23:22:05.386Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_github.svg
+[debug] [2023-12-13T23:22:05.386Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.386Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_github.svg
+[debug] [2023-12-13T23:22:05.387Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2023-12-13T23:22:05.387Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_apple.svg
+[debug] [2023-12-13T23:22:05.387Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.387Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_apple.svg
+[debug] [2023-12-13T23:22:05.387Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2023-12-13T23:22:05.388Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_google.svg
+[debug] [2023-12-13T23:22:05.388Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.388Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_google.svg
+[debug] [2023-12-13T23:22:05.388Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2023-12-13T23:22:05.388Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_email.svg
+[debug] [2023-12-13T23:22:05.388Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.389Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_email.svg
+[debug] [2023-12-13T23:22:05.389Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2023-12-13T23:22:05.389Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2023-12-13T23:22:05.389Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.389Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2023-12-13T23:22:05.390Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2023-12-13T23:22:05.390Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2023-12-13T23:22:05.390Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons
+[debug] [2023-12-13T23:22:05.390Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2023-12-13T23:22:05.391Z] [unzip] Entry: client/assets/index.c2583d42.js.map (compressed_size=1778557 bytes, uncompressed_size=7961927 bytes)
+[debug] [2023-12-13T23:22:05.391Z] [unzip] Processing entry: client\assets\index.c2583d42.js.map
+[debug] [2023-12-13T23:22:05.391Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets
+[debug] [2023-12-13T23:22:05.391Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\index.c2583d42.js.map
+[debug] [2023-12-13T23:22:05.421Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-12-13T23:22:05.422Z] [unzip] Processing entry: client\assets\img\
+[debug] [2023-12-13T23:22:05.422Z] [unzip] mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\img\
+[debug] [2023-12-13T23:22:05.422Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2023-12-13T23:22:05.422Z] [unzip] Processing entry: client\assets\img\database.png
+[debug] [2023-12-13T23:22:05.422Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\img
+[debug] [2023-12-13T23:22:05.423Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\assets\img\database.png
+[debug] [2023-12-13T23:22:05.423Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=838 bytes, uncompressed_size=1504 bytes)
+[debug] [2023-12-13T23:22:05.424Z] [unzip] Processing entry: client\safari-pinned-tab.svg
+[debug] [2023-12-13T23:22:05.424Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.426Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\safari-pinned-tab.svg
+[debug] [2023-12-13T23:22:05.427Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=5406 bytes, uncompressed_size=5723 bytes)
+[debug] [2023-12-13T23:22:05.427Z] [unzip] Processing entry: client\mstile-150x150.png
+[debug] [2023-12-13T23:22:05.427Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.427Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\mstile-150x150.png
+[debug] [2023-12-13T23:22:05.428Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2023-12-13T23:22:05.428Z] [unzip] Processing entry: client\browserconfig.xml
+[debug] [2023-12-13T23:22:05.428Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.428Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\browserconfig.xml
+[debug] [2023-12-13T23:22:05.428Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2023-12-13T23:22:05.428Z] [unzip] Processing entry: client\robots.txt
+[debug] [2023-12-13T23:22:05.428Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.429Z] [unzip] Writing file: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\robots.txt
+[debug] [2023-12-13T23:22:05.429Z] [unzip] Entry: client/index.html (compressed_size=1363 bytes, uncompressed_size=3064 bytes)
+[debug] [2023-12-13T23:22:05.429Z] [unzip] Processing entry: client\index.html
+[debug] [2023-12-13T23:22:05.429Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.430Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\index.html
+[debug] [2023-12-13T23:22:05.430Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=757 bytes, uncompressed_size=777 bytes)
+[debug] [2023-12-13T23:22:05.430Z] [unzip] Processing entry: client\favicon-16x16.png
+[debug] [2023-12-13T23:22:05.430Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.430Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\favicon-16x16.png
+[debug] [2023-12-13T23:22:05.431Z] [unzip] Entry: client/manifest.json (compressed_size=246 bytes, uncompressed_size=551 bytes)
+[debug] [2023-12-13T23:22:05.431Z] [unzip] Processing entry: client\manifest.json
+[debug] [2023-12-13T23:22:05.431Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.431Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\manifest.json
+[debug] [2023-12-13T23:22:05.432Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=1175 bytes, uncompressed_size=1175 bytes)
+[debug] [2023-12-13T23:22:05.432Z] [unzip] Processing entry: client\favicon-32x32.png
+[debug] [2023-12-13T23:22:05.432Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.432Z] [unzip] Writing file: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\favicon-32x32.png
+[debug] [2023-12-13T23:22:05.432Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=7602 bytes, uncompressed_size=7834 bytes)
+[debug] [2023-12-13T23:22:05.433Z] [unzip] Processing entry: client\android-chrome-192x192.png
+[debug] [2023-12-13T23:22:05.433Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client
+[debug] [2023-12-13T23:22:05.433Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\client\android-chrome-192x192.png
+[debug] [2023-12-13T23:22:05.434Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-12-13T23:22:05.434Z] [unzip] Processing entry: server\
+[debug] [2023-12-13T23:22:05.434Z] [unzip] mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\server\
+[debug] [2023-12-13T23:22:05.434Z] [unzip] Entry: server/server.js (compressed_size=343746 bytes, uncompressed_size=1346374 bytes)
+[debug] [2023-12-13T23:22:05.434Z] [unzip] Processing entry: server\server.js
+[debug] [2023-12-13T23:22:05.434Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\server
+[debug] [2023-12-13T23:22:05.434Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\server\server.js
+[debug] [2023-12-13T23:22:05.439Z] [unzip] Entry: server/server.js.map (compressed_size=289157 bytes, uncompressed_size=1325651 bytes)
+[debug] [2023-12-13T23:22:05.439Z] [unzip] Processing entry: server\server.js.map
+[debug] [2023-12-13T23:22:05.439Z] [unzip] else mkdir: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\server
+[debug] [2023-12-13T23:22:05.439Z] [unzip] deflating: C:\Users\msowk\.cache\firebase\emulators\ui-v1.11.7\server\server.js.map
+[debug] [2023-12-13T23:22:05.444Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-12-13T23:22:05.444Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-12-13T23:22:05.444Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\msowk\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\msowk\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-12-13T23:22:05.535Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-12-13T23:22:05.535Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[debug] [2023-12-13T23:22:05.704Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=second-home-faf97-default-rtdb
+[debug] [2023-12-13T23:22:05.705Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\n  \"rules\": {\n    \".read\": false,\n    \".write\": false\n  }\n}"
+[debug] [2023-12-13T23:22:05.933Z] 17:22:05.933 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - second-home-faf97-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 102ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"17:22:05.933 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - second-home-faf97-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 102ms, init: 0ms\r\n"}}
+[debug] [2023-12-13T23:22:05.982Z] 17:22:05.982 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace second-home-faf97-default-rtdb status Active to Active
+ {"metadata":{"emulator":{"name":"database"},"message":"17:22:05.982 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace second-home-faf97-default-rtdb status Active to Active\r\n"}}
+[debug] [2023-12-13T23:22:06.021Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2023-12-13T23:22:06.021Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┬────────────────────────────────┐
+│ Emulator │ Host:Port      │ View in Emulator UI            │
+├──────────┼────────────────┼────────────────────────────────┤
+│ Database │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
+├──────────┼────────────────┼────────────────────────────────┤
+│ Hosting  │ 127.0.0.1:5000 │ n/a                            │
+├──────────┼────────────────┼────────────────────────────────┤
+│ Storage  │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage  │
+└──────────┴────────────────┴────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-12-13T23:22:16.787Z] 17:22:16.786 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace second-home-faf97, but the emulator is configured for second-home-faf97-default-rtdb. To 
+opt-out of single project mode add/set the singleProjectMode: false property in 
+the firebase.json emulators config. 
+ {"metadata":{"emulator":{"name":"database"},"message":"17:22:16.786 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested \nnamespace second-home-faf97, but the emulator is configured for second-home-faf97-default-rtdb. To \nopt-out of single project mode add/set the singleProjectMode: false property in \nthe firebase.json emulators config. \r\n"}}
+[debug] [2023-12-13T23:22:16.791Z] 17:22:16.791 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - second-home-faf97 successfully activated FBKV (SurveyIdle(0)) wait: 1ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"17:22:16.791 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - second-home-faf97 successfully activated FBKV (SurveyIdle(0)) wait: 1ms, init: 0ms\r\n"}}
