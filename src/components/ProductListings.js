@@ -1,50 +1,61 @@
+// src/components/ProductListings.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import shoeThumbnail from "../assets/shoe-thumbnail.jpg";
-import earringThumbnail from "../assets/earring-thumbnail.png";
-import Typography from "@mui/material/Typography";
+import axios from "axios";
 
 const ProductListings = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const mockProducts = [
-      {
-        id: 1,
-        name: "Shoe",
-        price: 49.99,
-        sellerId: 1,
-        thumbnail: shoeThumbnail,
-      },
-      {
-        id: 2,
-        name: "Earring",
-        price: 19.99,
-        sellerId: 2,
-        thumbnail: earringThumbnail,
-      },
-      // Add more products as needed
-    ];
-    setProducts(mockProducts);
+    const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  const fetchStockImage = async () => {
+    try {
+      const response = await axios.get("https://source.unsplash.com/random");
+      return response.config.url;
+    } catch (error) {
+      console.error("Error fetching stock image:", error);
+      // Provide a fallback image URL in case of an error
+      return "https://via.placeholder.com/150";
+    }
+  };
 
   return (
     <div>
       <h2 className="product-listing-title">Product Listings</h2>
       <div className="product-tiles">
-        {products.map((product) => (
-          <Link
-            to={`/product/${product.id}`}
-            key={product.id}
-            style={{ textDecoration: "none" }}
-          >
-            <div className="product-tile">
-              <img src={product.thumbnail} alt={`${product.name} Thumbnail`} />
-              <h3>{product.name}</h3>
-              <p>${product.price}</p>
-            </div>
-          </Link>
-        ))}
+        {products &&
+          products.map(async (product) => {
+            const stockImage = await fetchStockImage();
+
+            return (
+              <Link
+                to={`/product/${product.id}`}
+                key={product.id}
+                style={{ textDecoration: "none" }}
+              >
+                <div className="product-tile">
+                  <img
+                    src={stockImage}
+                    alt={`${product.title} Thumbnail`}
+                    className="product-thumbnail"
+                  />
+                  <div className="product-info">
+                    <h3>{product.title}</h3>
+                    <p>{product.body}</p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
       </div>
     </div>
   );
