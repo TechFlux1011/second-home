@@ -19,9 +19,6 @@ const Home = () => {
   };
 
   // Initialize Firebase
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
 
   const app =
     getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
