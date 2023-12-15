@@ -1,6 +1,7 @@
 // Home.js
 import React from "react";
 import { Link } from "react-router-dom";
+import firebase from "firebase/app"; // Add this line for the missing import
 import { initializeApp, getApps } from "firebase/app";
 import "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
@@ -45,7 +46,7 @@ const Home = () => {
     <div>
       <h1>Welcome to the Home Page</h1>
 
-      {/* ... (existing content) */}
+      {/* Existing content */}
 
       {/* Sign In with Social Media */}
       <div>
