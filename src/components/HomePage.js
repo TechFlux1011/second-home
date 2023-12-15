@@ -1,12 +1,14 @@
 // src/components/HomePage.js
 
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useAuth } from "../AuthContext";
 import { useLoginMutation, useLogoutMutation } from "../services/AuthService";
 
 const HomePage = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const loginMutation = useLoginMutation();
   const logoutMutation = useLogoutMutation();
 
@@ -17,6 +19,9 @@ const HomePage = () => {
         password: "example_password",
       };
       await loginMutation.mutateAsync(credentials);
+
+      // Redirect to product listings page after successful login
+      navigate("/productlistings");
     } catch (error) {
       console.error("Login error:", error);
     }
@@ -44,6 +49,7 @@ const HomePage = () => {
           Log In
         </Button>
       )}
+      <Link to="/productlistings">Go to Product Listings</Link>
     </div>
   );
 };

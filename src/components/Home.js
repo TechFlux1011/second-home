@@ -35,35 +35,25 @@ const Home = () => {
       const user = result.user;
       console.log("Successfully signed in with Google", user);
 
-      // Use the navigate function to go to the homepage
       navigate("/");
-
-      // You can also navigate to the product listings page if needed
-      // navigate("/product-listings");
     } catch (error) {
       console.error("Error signing in with Google", error);
     }
   };
 
-  // React Router's useNavigate hook
   const navigate = useNavigate();
 
   return (
     <div>
       <h1>Welcome to the Home Page</h1>
 
-      {/* Existing content */}
-
-      {/* Sign In with Social Media */}
       <div>
         <h2>Sign In with Social Media</h2>
         <button type="button" onClick={signInWithGoogle}>
           Sign In with Google
         </button>
-        {/* Add buttons for other social media providers as needed */}
       </div>
 
-      {/* Link to Registration Page */}
       <div>
         <p>
           Don't have an account? <Link to="/register">Register here</Link>.
