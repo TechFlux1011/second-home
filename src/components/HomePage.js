@@ -1,27 +1,21 @@
 // src/components/HomePage.js
 
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Avatar, Typography } from "@mui/material";
 import { useAuth } from "../AuthContext";
 import { useLoginMutation, useLogoutMutation } from "../services/AuthService";
 
 const HomePage = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
   const loginMutation = useLoginMutation();
   const logoutMutation = useLogoutMutation();
 
   const handleLogin = async () => {
     try {
       const credentials = {
-        username: "example_user",
-        password: "example_password",
+        // Your login logic here
       };
       await loginMutation.mutateAsync(credentials);
-
-      // Redirect to product listings page after successful login
-      navigate("/productlistings");
     } catch (error) {
       console.error("Login error:", error);
     }
@@ -39,17 +33,28 @@ const HomePage = () => {
     <div>
       {user ? (
         <>
-          <p>Welcome, {user.username}!</p>
+          <Avatar
+            alt="User Avatar"
+            src={user.photoURL}
+            sx={{ width: 60, height: 60, marginRight: 2 }}
+          />
+          <Typography variant="h6" component="div" sx={{ marginRight: 2 }}>
+            Welcome, {user.displayName}!
+          </Typography>
           <Button variant="outlined" color="primary" onClick={handleLogout}>
             Log Out
           </Button>
         </>
       ) : (
-        <Button variant="contained" color="primary" onClick={handleLogin}>
-          Log In
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleLogin}
+          sx={{ borderRadius: 20 }}
+        >
+          Log In with Google
         </Button>
       )}
-      <Link to="/productlistings">Go to Product Listings</Link>
     </div>
   );
 };
