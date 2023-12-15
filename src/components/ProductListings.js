@@ -12,6 +12,10 @@ import {
 import { styled } from "@mui/system";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 
 const DarkBackground = styled("div")({
   backgroundColor: "#121212", // Dark background color
@@ -153,6 +157,25 @@ const ProductListings = () => {
           </Grid>
         ))}
       </Grid>
+
+      {/* Bottom Navigation Bar */}
+      <BottomNavigation showLabels>
+        <BottomNavigationAction label="Home" />
+        <BottomNavigationAction label="Categories" />
+        <BottomNavigationAction label="Favorites" />
+        {/* Add more navigation items as needed */}
+      </BottomNavigation>
+
+      {/* Floating Action Button for creating a post */}
+      <Fab
+        color="primary"
+        aria-label="add"
+        style={{ position: "fixed", bottom: 16, right: 16 }}
+        // eslint-disable-next-line no-undef
+        onClick={handleCreatePost}
+      >
+        <AddIcon />
+      </Fab>
     </DarkBackground>
   );
 };
