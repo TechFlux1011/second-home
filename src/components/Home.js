@@ -2,8 +2,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { initializeApp, getApps } from "firebase/app";
-import { getAuth } from "firebase/auth"; // Update the import here
+import "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 const Home = () => {
   // Configure Firebase with your own credentials
@@ -27,12 +28,11 @@ const Home = () => {
     getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
   const analytics = getAnalytics(app);
-  const auth = getAuth(app); // Initialize the auth module
+  const auth = getAuth(); // Initialize auth
 
   // Google sign-in function
   const signInWithGoogle = async () => {
-    // Use the auth module here
-    const provider = new auth.GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
 
     try {
       await auth.signInWithPopup(provider);
