@@ -1,9 +1,8 @@
 // Home.js
 import React from "react";
 import { Link } from "react-router-dom";
-import firebase from "firebase/app"; // Add this line for the missing import
 import { initializeApp, getApps } from "firebase/app";
-import "firebase/auth";
+import { getAuth } from "firebase/auth"; // Update the import here
 import { getAnalytics } from "firebase/analytics";
 
 const Home = () => {
@@ -20,21 +19,23 @@ const Home = () => {
   };
 
   // Initialize Firebase
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+  if (!getApps().length) {
+    initializeApp(firebaseConfig);
   }
 
   const app =
     getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
   const analytics = getAnalytics(app);
+  const auth = getAuth(app); // Initialize the auth module
 
   // Google sign-in function
   const signInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
+    // Use the auth module here
+    const provider = new auth.GoogleAuthProvider();
 
     try {
-      await firebase.auth().signInWithPopup(provider);
+      await auth.signInWithPopup(provider);
       console.log("Successfully signed in with Google");
       // You can redirect or perform additional actions after successful sign-in
     } catch (error) {
