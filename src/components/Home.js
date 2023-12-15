@@ -1,10 +1,9 @@
 // Home.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { initializeApp, getApps } from "firebase/app";
-import "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 const Home = () => {
   // Configure Firebase with your own credentials
@@ -20,28 +19,37 @@ const Home = () => {
   };
 
   // Initialize Firebase
-  if (!getApps().length) {
-    initializeApp(firebaseConfig);
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
   }
 
   const app =
     getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
   const analytics = getAnalytics(app);
-  const auth = getAuth(); // Initialize auth
 
   // Google sign-in function
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
+    const auth = getAuth();
 
     try {
-      await auth.signInWithPopup(provider);
-      console.log("Successfully signed in with Google");
-      // You can redirect or perform additional actions after successful sign-in
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log("Successfully signed in with Google", user);
+
+      // Use the navigate function to go to the homepage
+      navigate("/");
+
+      // You can also navigate to the product listings page if needed
+      // navigate("/product-listings");
     } catch (error) {
       console.error("Error signing in with Google", error);
     }
   };
+
+  // React Router's useNavigate hook
+  const navigate = useNavigate();
 
   return (
     <div>
